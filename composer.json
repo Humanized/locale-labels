@@ -1,0 +1,27 @@
+{
+    "name": "humanized/php-locale-labels",
+    "description": " Wrapper functions for getting internationalised labels leveraging the build-in PHP Locale libraries ",
+    "keywords": ["internationalisation","php","locale"],
+    "license": "GPL-3.0",
+    "version": "0.0.1",
+    "support": {
+        "issues": "https://github.com/humanized/php-locale-labels/issues",
+        "wiki": "https://github.com/humanized/php-locale-labels/wiki",
+        "source": "https://github.com/humanized/php-locale-labels"
+    },
+    "authors": [
+        {
+            "name": "Jeffrey Geyssens",
+            "email": "jeffrey@humanized.be"
+        }
+    ],
+    "require": {
+        "php" : ">=5.3.3",
+        "ext-intl" : "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "humanized\\locale\\": ""
+        }
+    }
+}
