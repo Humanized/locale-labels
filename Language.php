@@ -1,6 +1,6 @@
 <?php
 
-namespace humanized\locale;
+namespace humanized\localehelpers;
 
 use Locale;
 use ResourceBundle;

@@ -1,5 +1,5 @@
 {
-    "name": "humanized/php-locale-labels",
+    "name": "humanized/php-locale-helpers",
     "description": " Wrapper functions for getting internationalised labels leveraging the build-in PHP Locale libraries ",
     "keywords": ["internationalisation","php","locale"],
     "license": "GPL-3.0",

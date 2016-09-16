@@ -1,6 +1,6 @@
 <?php
 
-namespace humanized\locale;
+namespace humanized\localehelpers;
 
 /**
  * @link https://github.com/humanized/php-locale-helpers
