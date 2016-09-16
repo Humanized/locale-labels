@@ -8,32 +8,26 @@ use ResourceBundle;
 class Language
 {
 
+    use LocaleHelperTrait;
+
     public static function available()
     {
         return ResourceBundle::getLocales('');
     }
 
-    public static function exists($locale)
+    public static function _lookup($locale, $format)
     {
-        return in_array($locale, self::available());
+        return Locale::getDisplayLanguage($locale, $format);
     }
 
-    public static function localised_label($locale)
+    public static function localised_label($lookup)
     {
-        return self::label($locale);
+        return self::label($lookup);
     }
 
-    public static function native_label($locale)
+    public static function native_label($lookup)
     {
-        return self::label($locale, $locale);
-    }
-
-    public static function label($locale, $format = \Locale::DEFAULT_LOCALE)
-    {
-        if (!self::exists($locale)) {
-            return null;
-        }
-        return Locale::locale_get_display_name($locale, $format);
+        return self::label($lookup, $lookup);
     }
 
 }

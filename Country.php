@@ -1,26 +1,35 @@
-
 <?php
 
-namespace humanized\localelabels;
+namespace humanized\locale;
 
 use Locale;
+use ResourceBundle;
 
 class Country
 {
 
+    use LocaleHelperTrait;
+
     public static function available()
     {
-        
+        $out = [];
+        foreach (ResourceBundle::getLocales('') as $locale) {
+            $candidate = null;
+            $last_ = strripos($locale, '_');
+            if ($last_) {
+                $candidate = substr($locale, $last_ + 1);
+            }
+            if (strlen($candidate) == 2) {
+                $out[] = $candidate;
+            }
+        }
+        sort($out);
+        return array_merge(array_unique($out));
     }
 
-    public static function exists($code)
+    public static function _lookup($code, $locale)
     {
-        
-    }
-
-    public static function label($code, $locale = \Locale::DEFAULT_LOCALE)
-    {
-        return Locale::getDisplayRegion('-' . $code, $locale);
+        return Locale::getDisplayRegion('-' . strtoupper($code), $locale);
     }
 
 }
