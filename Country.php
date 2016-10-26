@@ -10,7 +10,7 @@ class Country
 
     use LocaleHelperTrait;
 
-    public static function available()
+    public static function all()
     {
         $out = [];
         foreach (ResourceBundle::getLocales('') as $locale) {

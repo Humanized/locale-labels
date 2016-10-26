@@ -2,10 +2,10 @@
 
 namespace humanized\localehelpers;
 
-use Locale;
+use Locale as NativeLocale;
 use ResourceBundle;
 
-class Language
+class Locale
 {
 
     use LocaleHelperTrait;
@@ -17,7 +17,7 @@ class Language
 
     public static function _lookup($locale, $format)
     {
-        return Locale::getDisplayLanguage($locale, $format);
+        return NativeLocale::getDisplayLanguage($locale, $format);
     }
 
     public static function localised_label($lookup)

@@ -29,7 +29,7 @@ trait LocaleHelperTrait
 
     public static function exists($lookup)
     {
-        return in_array($lookup, self::available());
+        return in_array($lookup, self::all());
     }
 
     public static function label($lookup, $locale = Locale::DEFAULT_LOCALE)
@@ -41,6 +41,32 @@ trait LocaleHelperTrait
             return null;
         }
         return self::_lookup($lookup, $locale);
+    }
+
+    public static function filter($fn)
+    {
+        $out = [];
+
+        foreach (self::all() as $value) {
+            if ($fn($value)) {
+                $out[] = $value;
+            }
+        }
+        return $out;
+    }
+
+    public static function buildAssociativeArray($value = null, $keyFilterCondition = null)
+    {
+        $out = [];
+        if (isset($keyFilterCondition) && !is_callable($keyFilterCondition)) {
+            throw new Exception('keyFilterCondition must be a callable', '999');
+        }
+        foreach (self::all() as $key) {
+            if ((isset($keyFilterCondition) ? $keyFilterCondition($key) : true)) {
+                $out[$key] = !isset($value) ? $key : (is_callable($value) ? $value($key) : $value);
+            }
+        }
+        return $out;
     }
 
 }
