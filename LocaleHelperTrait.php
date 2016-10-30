@@ -50,7 +50,7 @@ trait LocaleHelperTrait
             $locale = 'en';
         }
         $labelFn = self::labelFn;
-        return SystemLocale::$labelFn($lookup, $locale);
+        return SystemLocale::$labelFn(self::lookupPrefix . $lookup, $locale);
     }
 
     public static function buildAssociativeArray($value = null, $keyFilterCondition = null)

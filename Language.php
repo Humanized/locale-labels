@@ -10,6 +10,7 @@ class Language
 
     use LocaleHelperTrait;
 
+    const lookupPrefix = '';
     const labelFn = 'getDisplayLanguage';
 
     protected function _filterSystemLocale($locale)

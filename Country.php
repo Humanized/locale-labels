@@ -11,6 +11,7 @@ class Country
     use LocaleHelperTrait;
 
     const labelFn = 'getDisplayRegion';
+    const lookupPrefix = '-';
 
     protected function _filterSystemLocale(&$locale)
     {

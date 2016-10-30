@@ -8,6 +8,8 @@ use ResourceBundle;
 class Locale
 {
 
+    const lookupPrefix = '';
+
     use LocaleHelperTrait;
 
     const labelFn = 'getDisplayLanguage';
