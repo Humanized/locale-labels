@@ -14,7 +14,7 @@ class Locale
 
     public function _filterSystemLocale($locale)
     {
-        return $locale;
+        return true;
     }
 
 }
