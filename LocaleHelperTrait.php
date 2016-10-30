@@ -7,16 +7,17 @@ namespace humanized\localehelpers;
  * @copyright Copyright (c) 2016 Humanized
  * @license https://www.gnu.org/licenses/gpl-3.0.en.html
  */
-use Locale;
+use Locale as SystemLocale;
+use ResourceBundle;
 
 /**
  * This is the common trait class used in the helper classes defined in this package
  * 
- * It implements methods requiring the parent class to implement following static methods:
+ * It implements methods requiring the implementing class to define following class constants:
  * 
  * <table>
- * <tr><td>available()</td><td>List of available values for the </td>
- * <tr><td>_lookup($lookup,$locale)</td><td></td>
+ * <tr><td>labelFn</td><td>The </td>
+ * <tr><td></td><td></td>
  * </table>
  * 
  * @name PHP Locale Helpers common traits 
@@ -27,32 +28,29 @@ use Locale;
 trait LocaleHelperTrait
 {
 
+    public static function all()
+    {
+        return array_merge(array_unique(array_filter(ResourceBundle::getLocales(''), ['self', '_filterSystemLocale'])));
+    }
+
     public static function exists($lookup)
     {
         return in_array($lookup, self::all());
     }
 
-    public static function label($lookup, $locale = Locale::DEFAULT_LOCALE)
+    public static function label($lookup, $locale = null)
     {
-        if (!isset($locale)) {
-            $locale = 'en';
-        }
         if (!self::exists($lookup)) {
             return null;
         }
-        return self::_lookup($lookup, $locale);
-    }
-
-    public static function filter($fn)
-    {
-        $out = [];
-
-        foreach (self::all() as $value) {
-            if ($fn($value)) {
-                $out[] = $value;
-            }
+        if (!isset($locale) && NULL !== SystemLocale::getDefault()) {
+            $locale = SystemLocale::getDefault();
         }
-        return $out;
+        if (!isset($locale)) {
+            $locale = 'en';
+        }
+        $labelFn = self::labelFn;
+        return SystemLocale::$labelFn($lookup, $locale);
     }
 
     public static function buildAssociativeArray($value = null, $keyFilterCondition = null)

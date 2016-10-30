@@ -3,6 +3,12 @@ A collection of simple wrapper functions leveraging build-in PHP locale librarie
 
 ## Features
 
+The library contains the following classes:
+
+Each class implements the following static functions:
+  all()
+  label(lookup,$locale)
+  exists(lookup)
 
 ## Dependencies
 
