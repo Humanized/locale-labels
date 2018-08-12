@@ -4,9 +4,9 @@ A collection of simple wrapper functions leveraging build-in PHP locale librarie
 ## Features
 
 The library contains the following callable classes:
-  Country
-  Language
-  Locale
+* Country
+*  Language
+*  Locale
 
 Each class implements the following static functions:
   all()
