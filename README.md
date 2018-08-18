@@ -12,9 +12,9 @@ Each class implements the following static functions:
 
 |Function   	| Example Input  	| Example Output  	|   
 |---	|---	|---	|
-| all()   	| Country::all()  	| string[]:['AF','AX', 'AL',....]   	|   
-| exists()  	| Country::exists('ps')   	| boolean:true  	|   
-| label()  	| Country::label('ps','en')  	| string:"Palestine")  	|   
+| all()   	| Country::all()  	| string[]: ['AF','AX', 'AL',....]   	|   
+| exists()  	| Country::exists('ps')   	| boolean: true  	|   
+| label()  	| Country::label('ps','en')  	| string: "Palestine")  	|   
 
 ## Dependencies
 
