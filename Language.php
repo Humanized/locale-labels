@@ -13,7 +13,7 @@ class Language
     const lookupPrefix = '';
     const labelFn = 'getDisplayLanguage';
 
-    protected function _filterSystemLocale($locale)
+    protected static function _filterSystemLocale($locale)
     {
         return strlen($locale) == 2;
     }
