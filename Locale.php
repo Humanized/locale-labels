@@ -14,7 +14,7 @@ class Locale
 
     const labelFn = 'getDisplayLanguage';
 
-    public function _filterSystemLocale($locale)
+    public function static _filterSystemLocale($locale)
     {
         return true;
     }
