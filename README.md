@@ -5,13 +5,16 @@ A collection of simple wrapper functions leveraging build-in PHP locale librarie
 
 The library contains the following callable classes:
 * Country
-*  Language
-*  Locale
+* Language
+* Locale
 
 Each class implements the following static functions:
-  all()
-  label(lookup,$locale)
-  exists(lookup)
+
+|Function   	| Example Input  	| Example Output  	|   
+|---	|---	|---	|
+| all()   	| Country::all()  	| string[]:['AF','AX', 'AL',....]   	|   
+| exists()  	| Country::exists('ps')   	| boolean:true  	|   
+| label()  	| Country::label('ps','en')  	| string:"Palestine")  	|   
 
 ## Dependencies
 
