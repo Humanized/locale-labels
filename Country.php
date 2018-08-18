@@ -13,7 +13,7 @@ class Country
     const labelFn = 'getDisplayRegion';
     const lookupPrefix = '-';
 
-    protected function _filterSystemLocale(&$locale)
+    protected static function _filterSystemLocale(&$locale)
     {
         if (strpos(substr($locale, -3), '_') != 0) {
             return false;
