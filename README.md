@@ -14,7 +14,7 @@ Each class implements the following static functions:
 |---	|---	|---	|
 | all()   	| Country::all()  	| string[]: ['AF','AX', 'AL',....]   	|   
 | exists()  	| Country::exists('ps')   	| boolean: true  	|   
-| label()  	| Country::label('ps','en')  	| string: "Palestine")  	|   
+| label()  	| Country::label('ps','en')  	| string: "Palestine"  	|   
 
 ## Dependencies
 
