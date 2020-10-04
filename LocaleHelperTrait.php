@@ -30,7 +30,7 @@ trait LocaleHelperTrait
 
     public static function all()
     {
-        return array_merge(array_unique(array_filter(ResourceBundle::getLocales(''), ['self', '_filterSystemLocale'])));
+        return array_merge(array_unique(array_map(['self', '_filterSystemLocale'],ResourceBundle::getLocales(''))));
     }
 
     public static function exists($lookup)
@@ -60,11 +60,11 @@ trait LocaleHelperTrait
             throw new Exception('keyFilterCondition must be a callable', '999');
         }
         foreach (self::all() as $key) {
-            if ((isset($keyFilterCondition) ? $keyFilterCondition($key) : true)) {
+            if ((isset($keyFilterCondition) ? $keyFilterCondition($key) : true) & $key!='') {
                 $out[$key] = !isset($value) ? $key : (is_callable($value) ? $value($key) : $value);
             }
         }
-        return $out;
+        return array_unique($out);
     }
 
 }
