@@ -15,7 +15,7 @@ class Language
 
     protected static function _filterSystemLocale($locale)
     {
-        return strlen($locale) == 2;
+        return strlen($locale) == 2 ? $locale : null;
     }
 
 }
